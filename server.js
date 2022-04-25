@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.render("about", {
+    res.render("pages/about", {
         meta: {
             data: {
                 description: "dummy for now",
@@ -37,6 +37,14 @@ app.get("/about", (req, res) => {
 
     //     // console.log(entry.sys);
     // });
+});
+
+app.get("/job/:uid", (req, res) => {
+    res.render("job");
+});
+
+app.get("/project/:uid", (req, res) => {
+    res.render("project");
 });
 
 app.listen(port, () => {
