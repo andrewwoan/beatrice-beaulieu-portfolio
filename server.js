@@ -39,10 +39,6 @@ app.get("/about", (req, res) => {
     // });
 });
 
-app.get("/job/:uid", (req, res) => {
-    res.render("job");
-});
-
 app.get("/project/:uid", (req, res) => {
     res.render("project");
 });
