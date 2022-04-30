@@ -14,7 +14,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("pages/home");
 });
 
 app.get("/about", (req, res) => {
@@ -25,22 +25,14 @@ app.get("/about", (req, res) => {
             },
         },
     });
-    // client.getEntry("").then(function (entry) {
-    //     console.log(entry.fields.aboutMe);
-    //     res.render("about", {
-    //         meta: {
-    //             data: {
-    //                 description: "dummy for now",
-    //             },
-    //         },
-    //     });
-
-    //     // console.log(entry.sys);
-    // });
 });
 
-app.get("/project/:uid", (req, res) => {
-    res.render("project");
+app.get("/work", (req, res) => {
+    res.render("pages/work");
+});
+
+app.get("/work/:uid", (req, res) => {
+    res.render("pages/detail");
 });
 
 app.listen(port, () => {

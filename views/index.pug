@@ -34,8 +34,10 @@ html(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "" 
         //- meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
 
     body
-        include ./components/preloader/preloader
+        include ./components/preloader
+        include ./components/navigation
 
-        h1.da Base
+        .content#content(page-view=template)
+            block content
 
         script(type="module" src="index.js")
