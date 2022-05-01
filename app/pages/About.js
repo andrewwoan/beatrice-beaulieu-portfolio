@@ -1,3 +1,5 @@
 export default class About {
-    constructor() {}
+    constructor() {
+        console.log("about");
+    }
 }

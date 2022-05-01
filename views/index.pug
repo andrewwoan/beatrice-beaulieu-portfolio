@@ -37,7 +37,7 @@ html(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "" 
         //- include ./components/preloader
         include ./components/navigation
 
-        .content#content(page-view=template)
+        .content#content(data-template=template)
             block content
 
         script(type="module" src="index.js")
