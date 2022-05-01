@@ -5,7 +5,7 @@ import Work from "./pages/Work";
 
 class App {
     constructor() {
-        console.log("app");
+        this.createPages();
     }
 
     createPages() {
@@ -15,6 +15,8 @@ class App {
             home: new Home(),
             work: new Work(),
         };
+
+        console.log(this.pages);
     }
 }
 
