@@ -1,0 +1,12 @@
+.home__gallery__figure {
+    height: 200px;
+    position: relative;
+    // visibility: hidden;
+    width: 300px;
+}
+
+.home_gallery__image {
+    @extend %cover;
+
+    object-fit: cover;
+}

@@ -15,6 +15,24 @@ app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
     res.render("pages/home");
+    // client
+    //     .getEntries()
+    //     .then((response) => {
+    //         const newData = response.items.map((entry) => {
+    //             const clone = { ...entry.fields };
+    //             // clone.workImage = clone.workImage.fields.file.url;
+    //             // console.log(clone.workImage);
+    //             return clone;
+    //         });
+
+    //         // console.log(newData);
+    //         res.render("pages/home", {
+    //             meta: {
+    //                 data: newData,
+    //             },
+    //         });
+    //     })
+    //     .catch(console.error);
 });
 
 app.get("/about", (req, res) => {
