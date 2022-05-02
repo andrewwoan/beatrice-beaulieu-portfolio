@@ -1,5 +1,7 @@
-export default class Detail {
+import Page from "../classes/Page";
+
+export default class Detail extends Page {
     constructor() {
-        console.log("detail");
+        super({ id: "detail", element: ".detail" });
     }
 }

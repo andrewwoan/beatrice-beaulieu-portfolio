@@ -15,7 +15,7 @@ class App {
         // Grab the data-attribute set in the block variables for
         this.template = this.content.getAttribute("data-template");
 
-        console.log(this.template);
+        // console.log(this.template);
     }
 
     createPages() {
@@ -26,7 +26,13 @@ class App {
             work: new Work(),
         };
 
-        console.log(this.pages);
+        //Grab the page for the current template we're on
+        this.page = this.pages[this.template];
+
+        //Create the page's content by calling it's create method
+        this.page.create();
+
+        console.log(this.page);
     }
 }
 

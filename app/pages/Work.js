@@ -1,5 +1,7 @@
-export default class Work {
+import Page from "../classes/Page";
+
+export default class Work extends Page {
     constructor() {
-        console.log("work");
+        super({ id: "work", element: ".work" });
     }
 }
