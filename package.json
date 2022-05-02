@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
+    "gsap": "^3.10.4",
     "sass": "^1.49.11",
     "vite": "^2.9.0"
   },

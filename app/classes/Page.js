@@ -1,3 +1,5 @@
+import GSAP from "gsap";
+
 export default class Page {
     constructor({ id, element, elements }) {
         this.selector = element;
@@ -6,7 +8,7 @@ export default class Page {
     }
 
     create() {
-        // Select the DOM element, inside block body which wraps the whole pug like .home
+        // 1. Select the DOM element, inside block body which wraps the whole pug like .home
         this.element = document.querySelector(this.selector);
         this.elements = {};
 
@@ -34,5 +36,24 @@ export default class Page {
             // console.log(this.elements);
         });
         // console.log("created: ", this.id, this.element);
+    }
+
+    // 2. Create Show/Hide
+    showPage() {
+        return new Promise((resolve) => {
+            GSAP.from(this.element, {
+                autoAlpha: 0,
+                onComplete: resolve,
+            });
+        });
+    }
+
+    hidePage() {
+        return new Promise((resolve) => {
+            GSAP.to(this.element, {
+                autoAlpha: 0,
+                onComplete: resolve,
+            });
+        });
     }
 }
