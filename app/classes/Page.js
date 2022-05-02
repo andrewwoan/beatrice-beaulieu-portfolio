@@ -15,15 +15,15 @@ export default class Page {
             let key = entry[0];
             let data = entry[1];
             if (
-                entry instanceof window.HTMLElement ||
-                entry instanceof window.NodeList ||
-                Array.isArray(entry)
+                data instanceof window.HTMLElement ||
+                data instanceof window.NodeList ||
+                Array.isArray(data)
             ) {
                 this.elements[key] = data;
             } else {
                 this.elements[key] = document.querySelectorAll(data);
 
-                // What does this do exactly?
+                // If it's basically just a string select that string and it'll get it as an element
                 if (this.elements[key].length === 0) {
                     this.elements[key] = null;
                 } else if (this.elements[key].length === 1) {
@@ -31,8 +31,8 @@ export default class Page {
                 }
             }
 
-            console.log(this.elements);
+            // console.log(this.elements);
         });
-        console.log("created: ", this.id, this.element);
+        // console.log("created: ", this.id, this.element);
     }
 }

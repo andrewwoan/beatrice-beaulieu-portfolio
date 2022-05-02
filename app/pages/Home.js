@@ -13,4 +13,13 @@ export default class Home extends Page {
             },
         });
     }
+
+    create() {
+        super.create();
+
+        console.log(this.elements);
+        this.elements.navigation.addEventListener("click", () => {
+            console.log("hello world");
+        });
+    }
 }
