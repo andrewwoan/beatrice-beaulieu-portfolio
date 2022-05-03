@@ -1,13 +1,28 @@
+// Pages
 import About from "./pages/About";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 
+// Components
+import Preloader from "./components/Preloader";
+
 class App {
     constructor() {
+        this.createPreloader();
         this.createContent();
         this.createPages();
         this.addLinkListeners();
+    }
+
+    // Create the preloader after content/pages
+    createPreloader() {
+        this.preloader = new Preloader();
+        this.preloader.once("completed", this.onPreloaderCompleted);
+    }
+
+    onPreloaderCompleted() {
+        console.log("preloaded complete");
     }
 
     createContent() {
@@ -71,7 +86,6 @@ class App {
             const divContent = temporaryDiv.querySelector(".content");
 
             // Grab the data-template of the next page and set it to the current page
-
             this.template = divContent.getAttribute("data-template");
             this.content.setAttribute("data-template", this.template);
             // Update innerhtml
@@ -81,6 +95,7 @@ class App {
 
             this.page.create();
             this.page.showPage();
+            // Because we used .onclick - it gets overriden and we don't have to remove any
             this.addLinkListeners();
         } else {
             alert("Error Requesting Page");
