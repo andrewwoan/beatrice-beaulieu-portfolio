@@ -26,6 +26,8 @@ app.get("/", (req, res) => {
     //         });
 
     //         // console.log(newData);
+    //         // console.log(newData[0].models[0].fields);
+
     //         res.render("pages/home", {
     //             meta: {
     //                 data: newData,

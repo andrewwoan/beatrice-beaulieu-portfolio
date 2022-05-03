@@ -10,10 +10,14 @@ export default class Preloader extends Component {
             },
         });
 
-        console.log(this.element, this.elements);
+        // console.log(this.element, this.elements);
 
-        setTimeout(() => {
-            this.emit("completed");
-        }, 1000);
+        this.createLoader();
+    }
+
+    createLoader() {
+        Object.entries(this.elements).forEach((element) => {
+            console.log(element);
+        });
     }
 }
