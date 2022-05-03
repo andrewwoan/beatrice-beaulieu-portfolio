@@ -7,9 +7,13 @@ import Work from "./pages/Work";
 // Components
 import Preloader from "./components/Preloader";
 
+// Three.js Experience
+import Experience from "./experience/Experience";
+
 class App {
     constructor() {
         this.createPreloader();
+        this.createExperience();
         this.createContent();
         this.createPages();
         this.addLinkListeners();
@@ -19,6 +23,10 @@ class App {
     createPreloader() {
         this.preloader = new Preloader();
         this.preloader.once("completed", this.onPreloaderCompleted);
+    }
+
+    createExperience() {
+        this.experience = new Experience();
     }
 
     onPreloaderCompleted() {
