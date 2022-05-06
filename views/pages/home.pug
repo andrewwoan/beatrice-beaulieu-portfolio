@@ -8,6 +8,10 @@ block content
         .home__wrapper 
             .home__gallery 
                 .home__gallery__wrapper
-                    //- each figure in meta.data
-                    //-     figure.home__gallery__figure 
-                    //-         img.home_gallery__image(src=figure.workImage.fields.file.url)
+                    each work, index in data
+                        figure.home__gallery__figure 
+                            img.home_gallery__image(src=work.workImage.fields.file.url)
+
+                        h2.work___title=work.workTitle
+                        h2.work___description=work.workDescription        
+                        a.work__link(href=work.url) Test URL

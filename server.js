@@ -14,35 +14,29 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-    res.render("pages/home");
-    // client
-    //     .getEntries()
-    //     .then((response) => {
-    //         const newData = response.items.map((entry) => {
-    //             const clone = { ...entry.fields };
-    //             // clone.workImage = clone.workImage.fields.file.url;
-    //             // console.log(clone.workImage);
-    //             return clone;
-    //         });
-
-    //         // console.log(newData);
-    //         // console.log(newData[0].models[0].fields);
-
-    //         res.render("pages/home", {
-    //             meta: {
-    //                 data: newData,
-    //             },
-    //         });
-    //     })
-    //     .catch(console.error);
+    // res.render("pages/home");
+    client
+        .getEntries({ content_type: "work" })
+        .then((response) => {
+            const newData = response.items.map((entry) => {
+                const clone = { ...entry.fields };
+                // clone.workImage = clone.workImage.fields.file.url;
+                // console.log(clone.workImage);
+                return clone;
+            });
+            console.log(newData);
+            // console.log(newData[0].models[0].fields);
+            res.render("pages/home", {
+                data: newData,
+            });
+        })
+        .catch(console.error);
 });
 
 app.get("/about", (req, res) => {
     res.render("pages/about", {
-        meta: {
-            data: {
-                description: "dummy for now",
-            },
+        data: {
+            description: "dummy for now",
         },
     });
 });
@@ -52,7 +46,20 @@ app.get("/work", (req, res) => {
 });
 
 app.get("/work/:uid", (req, res) => {
-    res.render("pages/detail");
+    client
+        .getEntries({
+            content_type: "work",
+            "fields.workTitle[match]": `'${req.params.uid}'`,
+        })
+        .then((response) => {
+            console.log(response.items);
+            res.render("pages/detail", {
+                meta: {
+                    data: {},
+                },
+            });
+        })
+        .catch(console.error);
 });
 
 app.listen(port, () => {
