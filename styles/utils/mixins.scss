@@ -24,3 +24,20 @@
         width: 100%;
     }
 }
+
+%page {
+    @extend %cover;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+%page--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+%page__wrapper {
+    color: inherit;
+}
+  

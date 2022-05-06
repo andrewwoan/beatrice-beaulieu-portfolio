@@ -8,6 +8,14 @@ export default class Page {
     }
 
     create() {
+        // Lerping for smooth scrolling of
+        this.scroll = {
+            current: 0,
+            target: 0,
+            last: 0,
+            limit: 0,
+        };
+
         // 1. Select the DOM element, inside block body which wraps the whole pug like .home
         this.element = document.querySelector(this.selector);
         this.elements = {};
@@ -41,19 +49,80 @@ export default class Page {
     // 2. Create Show/Hide
     showPage() {
         return new Promise((resolve) => {
-            GSAP.from(this.element, {
-                autoAlpha: 0,
-                onComplete: resolve,
+            this.animateIn = GSAP.timeline();
+            this.animateIn.fromTo(
+                this.element,
+                { autoAlpha: 0 },
+                {
+                    autoAlpha: 1,
+                }
+            );
+
+            this.animateIn.call(() => {
+                this.addEventListeners();
+                resolve();
             });
         });
     }
 
     hidePage() {
         return new Promise((resolve) => {
-            GSAP.to(this.element, {
+            this.removeEventListeners();
+            this.animateOut = GSAP.timeline();
+            this.animateOut.to(this.element, {
                 autoAlpha: 0,
                 onComplete: resolve,
             });
         });
+    }
+
+    onMouseWheel(event) {
+        const { deltaY } = event;
+        // console.log(event);
+
+        if (deltaY >= 0) {
+            this.scroll.target += 30;
+        } else {
+            this.scroll.target -= 30;
+        }
+
+        // console.log(this.scroll.current);
+        // console.log(this.scroll.target);
+        // console.log(this.scroll.last);
+    }
+
+    onResize() {
+        if (this.elements.wrapper) {
+            this.scroll.limit =
+                this.elements.wrapper.clientHeight - window.innerHeight;
+        }
+    }
+
+    update() {
+        this.scroll.current = GSAP.utils.interpolate(
+            this.scroll.current,
+            this.scroll.target,
+            0.1
+        );
+        if (this.scroll.current < 0.1) {
+            this.scroll.current = 0;
+        }
+
+        this.scroll.target = GSAP.utils.clamp(
+            0,
+            this.scroll.limit,
+            this.scroll.target
+        );
+
+        console.log("it's ok");
+        this.elements.wrapper.style.transform = `translateY(-${this.scroll.current}px)`;
+    }
+
+    addEventListeners() {
+        window.addEventListener("wheel", this.onMouseWheel.bind(this));
+    }
+
+    removeEventListeners() {
+        window.removeEventListener("wheel", this.onMouseWheel.bind(this));
     }
 }

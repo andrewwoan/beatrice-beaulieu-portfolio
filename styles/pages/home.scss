@@ -1,3 +1,7 @@
+.home{
+    @extend %page
+}
+
 .home__gallery__figure {
     height: 200px;
     position: relative;

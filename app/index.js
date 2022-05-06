@@ -12,17 +12,19 @@ import Experience from "./experience/Experience";
 
 class App {
     constructor() {
+        this.update();
         this.createPreloader();
         this.createExperience();
         this.createContent();
         this.createPages();
+        this.addEventListeners();
         this.addLinkListeners();
     }
 
     // Create the preloader after content/pages
     createPreloader() {
         this.preloader = new Preloader();
-        this.preloader.once("completed", this.onPreloaderCompleted);
+        this.preloader.once("completed", this.onPreloaderCompleted.bind(this));
     }
 
     createExperience() {
@@ -30,7 +32,11 @@ class App {
     }
 
     onPreloaderCompleted() {
-        console.log("preloaded complete");
+        console.log("preloader done");
+        this.preloader.destroy();
+        // Could also put it here instead:
+        this.onResize();
+        this.page.showPage();
     }
 
     createContent() {
@@ -57,9 +63,17 @@ class App {
         this.page.create();
 
         //3. Animate the page in
-        this.page.showPage();
+        // this.page.showPage();
+    }
 
-        console.log(this.page);
+    onResize() {
+        if (this.page && this.page.onResize) {
+            this.page.onResize();
+        }
+    }
+
+    addEventListeners() {
+        window.addEventListener("resize", this.onResize.bind(this));
     }
 
     // 4. Manage Link Clicks
@@ -100,14 +114,23 @@ class App {
             this.content.innerHTML = divContent.innerHTML;
 
             this.page = this.pages[this.template];
-
             this.page.create();
+            this.onResize();
+
             this.page.showPage();
             // Because we used .onclick - it gets overriden and we don't have to remove any
             this.addLinkListeners();
         } else {
             alert("Error Requesting Page");
         }
+    }
+
+    update() {
+        if (this.page && this.page.update()) {
+            this.page.update();
+        }
+        // window.requestAnimationFrame(this.update.bind(this));
+        this.frame = window.requestAnimationFrame(this.update.bind(this));
     }
 }
 

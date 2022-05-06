@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
                 // console.log(clone.workImage);
                 return clone;
             });
-            console.log(newData);
+            // console.log(newData);
             // console.log(newData[0].models[0].fields);
             res.render("pages/home", {
                 data: newData,
@@ -52,11 +52,14 @@ app.get("/work/:uid", (req, res) => {
             "fields.workTitle[match]": `'${req.params.uid}'`,
         })
         .then((response) => {
-            console.log(response.items);
+            const newData = response.items.map((entry) => {
+                const clone = { ...entry.fields };
+
+                return clone;
+            });
+            // console.log(newData);
             res.render("pages/detail", {
-                meta: {
-                    data: {},
-                },
+                data: newData,
             });
         })
         .catch(console.error);

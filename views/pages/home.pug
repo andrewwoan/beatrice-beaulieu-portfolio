@@ -10,7 +10,7 @@ block content
                 .home__gallery__wrapper
                     each work, index in data
                         figure.home__gallery__figure 
-                            img.home_gallery__image(src=work.workImage.fields.file.url)
+                            img.home_gallery__image(data-src=work.workImage.fields.file.url)
 
                         h2.work___title=work.workTitle
                         h2.work___description=work.workDescription        
