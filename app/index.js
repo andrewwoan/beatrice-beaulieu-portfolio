@@ -13,16 +13,16 @@ import Experience from "./experience/Experience";
 
 class App {
     constructor() {
-        this.update();
         this.createContent();
 
         this.createPreloader();
         this.createNavigation();
-
         this.createExperience();
         this.createPages();
+
         this.addEventListeners();
         this.addLinkListeners();
+        this.update();
     }
 
     createNavigation() {
@@ -79,6 +79,10 @@ class App {
         }
     }
 
+    onPopState(event) {
+        this.getNextPage({ url: window.location.pathname, push: false });
+    }
+
     addEventListeners() {
         window.addEventListener("resize", this.onResize.bind(this));
     }
@@ -93,13 +97,13 @@ class App {
                 event.preventDefault();
                 const { href } = link;
 
-                this.getNextPage(href);
+                this.getNextPage({ url: href });
             };
         });
     }
 
     // Get the next page with API call
-    async getNextPage(url) {
+    async getNextPage({ url, push = true }) {
         await this.page.hidePage();
 
         const request = await fetch(url);
@@ -109,6 +113,9 @@ class App {
             const entireHTML = await request.text();
             const temporaryDiv = document.createElement("div");
 
+            if (push) {
+                window.history.pushState({}, "", url);
+            }
             temporaryDiv.innerHTML = entireHTML;
 
             // We only want the content to be selected NOT the html header stuff
@@ -139,6 +146,12 @@ class App {
         }
         // window.requestAnimationFrame(this.update.bind(this));
         this.frame = window.requestAnimationFrame(this.update.bind(this));
+    }
+
+    addLinkListeners() {}
+
+    addEventListeners() {
+        window.addEventListener("popstate", this.onPopState.bind(this));
     }
 }
 

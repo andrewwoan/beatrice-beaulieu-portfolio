@@ -1,2 +1,2 @@
 export const COLOR_BLACK = "black";
-export const COLOR_WHITE = "white";
+export const COLOR_GRAY = "gray";

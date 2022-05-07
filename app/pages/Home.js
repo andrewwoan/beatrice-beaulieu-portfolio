@@ -16,10 +16,10 @@ export default class Home extends Page {
 
     create() {
         super.create();
+        // creating new button
+    }
 
-        // console.log(this.elements);
-        // this.elements.navigation.addEventListener("click", () => {
-        //     console.log("hello world");
-        // });
+    destroy() {
+        // removeevent listners
     }
 }

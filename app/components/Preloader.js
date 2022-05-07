@@ -26,13 +26,19 @@ export default class Preloader extends Component {
         Object.entries(this.elements.images).forEach((element) => {
             // console.log(element[1]);
 
-            element[1].onload = () => this.onAssetLoaded(element[1]);
+            // element[1].onload = () => this.onAssetLoaded(element[1]);
+            // element[1].src = element[1].getAttribute("data-src");
+            console.log(element[1]);
+
+            // this.onAssetLoaded();
+            element[1].onload = () => this.onAssetLoaded();
             element[1].src = element[1].getAttribute("data-src");
         });
     }
 
     // when the asset is loaded, add to the progress, when it hit's 100 activated animation onloaded()
-    onAssetLoaded(image) {
+    onAssetLoaded() {
+        console.log("onAssetLoaded");
         this.queue += 1;
 
         const progress = Math.round(

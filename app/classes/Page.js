@@ -2,6 +2,7 @@ import GSAP from "gsap";
 import NormalizeWheel from "normalize-wheel";
 
 import Title from "./animations/Title";
+import AsyncLoad from "./AsyncLoad";
 
 export default class Page {
     constructor({ id, element, elements }) {
@@ -9,6 +10,7 @@ export default class Page {
         this.selectorChildren = {
             ...elements,
             animationTitles: '[data-animation="title"]',
+            preload: "[data-src]",
         };
         this.id = id;
     }
@@ -49,18 +51,28 @@ export default class Page {
         });
 
         this.createAnimations();
+        this.createPreloader();
     }
 
     createAnimations() {
         this.animation = [];
-        this.animationTitles = Object.entries(
-            this.elements.animationTitles
-        ).map((entry) => {
-            let data = entry[1];
+        if (this.animationTitles) {
+            this.animationTitles = Object.entries(
+                this.elements.animationTitles
+            ).map((entry) => {
+                let data = entry[1];
 
-            return new Title({ element: data });
-        });
-        this.animation.push(...this.animationTitles);
+                return new Title({ element: data });
+            });
+            this.animation.push(...this.animationTitles);
+        }
+    }
+
+    createPreloader() {
+        // this.preloaders = Object.entries(this.elements.preload).map((entry) => {
+        //     let data = entry[1];
+        //     return new AsyncLoad({ element: data });
+        // });
     }
 
     // 2. Create Show/Hide
@@ -140,4 +152,6 @@ export default class Page {
     removeEventListeners() {
         window.removeEventListener("wheel", this.onMouseWheel.bind(this));
     }
+
+    destroy() {}
 }
