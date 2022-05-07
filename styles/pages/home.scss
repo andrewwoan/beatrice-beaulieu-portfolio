@@ -1,6 +1,11 @@
 .home{
-    @extend %page
+    @extend %page;
+    
+    z-index: 9;
+
 }
+
+
 
 .home__gallery__figure {
     height: 200px;

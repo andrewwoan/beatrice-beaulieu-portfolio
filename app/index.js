@@ -6,6 +6,7 @@ import Work from "./pages/Work";
 
 // Components
 import Preloader from "./components/Preloader";
+import Navigation from "./components/Navigation";
 
 // Three.js Experience
 import Experience from "./experience/Experience";
@@ -13,12 +14,19 @@ import Experience from "./experience/Experience";
 class App {
     constructor() {
         this.update();
-        this.createPreloader();
-        this.createExperience();
         this.createContent();
+
+        this.createPreloader();
+        this.createNavigation();
+
+        this.createExperience();
         this.createPages();
         this.addEventListeners();
         this.addLinkListeners();
+    }
+
+    createNavigation() {
+        this.navigation = new Navigation({ template: this.template });
     }
 
     // Create the preloader after content/pages
@@ -108,6 +116,7 @@ class App {
 
             // Grab the data-template of the next page and set it to the current page
             this.template = divContent.getAttribute("data-template");
+            this.navigation.onChange(this.template);
             this.content.setAttribute("data-template", this.template);
             // Update innerhtml
             this.content.innerHTML = divContent.innerHTML;
