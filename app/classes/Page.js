@@ -51,7 +51,7 @@ export default class Page {
         });
 
         this.createAnimations();
-        this.createPreloader();
+        // this.createPreloader();
     }
 
     createAnimations() {

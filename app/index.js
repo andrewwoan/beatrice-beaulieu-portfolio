@@ -80,7 +80,7 @@ class App {
     }
 
     onPopState(event) {
-        this.getNextPage({ url: window.location.pathname, push: false });
+        this.getNextPage({ url: window.location.pathname, push: true });
     }
 
     addEventListeners() {
