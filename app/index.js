@@ -32,11 +32,10 @@ class App {
     }
 
     onPreloaderCompleted() {
-        console.log("preloader done");
         this.preloader.destroy();
         // Could also put it here instead:
         this.onResize();
-        this.page.showPage();
+        // this.page.showPage();
     }
 
     createContent() {
@@ -63,7 +62,7 @@ class App {
         this.page.create();
 
         //3. Animate the page in
-        // this.page.showPage();
+        this.page.showPage();
     }
 
     onResize() {

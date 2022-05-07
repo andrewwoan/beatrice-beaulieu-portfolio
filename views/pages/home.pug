@@ -12,6 +12,6 @@ block content
                         figure.home__gallery__figure 
                             img.home_gallery__image(data-src=work.workImage.fields.file.url)
 
-                        h2.work___title=work.workTitle
+                        h2.work___title(data-animation="title")=work.workTitle
                         h2.work___description=work.workDescription        
                         a.work__link(href=work.url) Test URL

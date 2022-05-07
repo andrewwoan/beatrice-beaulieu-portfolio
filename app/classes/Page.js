@@ -1,9 +1,15 @@
 import GSAP from "gsap";
+import NormalizeWheel from "normalize-wheel";
+
+import Title from "./animations/Title";
 
 export default class Page {
     constructor({ id, element, elements }) {
         this.selector = element;
-        this.selectorChildren = { ...elements };
+        this.selectorChildren = {
+            ...elements,
+            animationTitles: '[data-animation="title"]',
+        };
         this.id = id;
     }
 
@@ -40,10 +46,21 @@ export default class Page {
                     this.elements[key] = this.element.querySelector(data);
                 }
             }
-
-            // console.log(this.elements);
         });
-        // console.log("created: ", this.id, this.element);
+
+        this.createAnimations();
+    }
+
+    createAnimations() {
+        this.animation = [];
+        this.animationTitles = Object.entries(
+            this.elements.animationTitles
+        ).map((entry) => {
+            let data = entry[1];
+
+            return new Title({ element: data });
+        });
+        this.animation.push(...this.animationTitles);
     }
 
     // 2. Create Show/Hide
@@ -77,18 +94,13 @@ export default class Page {
     }
 
     onMouseWheel(event) {
-        const { deltaY } = event;
-        // console.log(event);
+        const { pixelY } = NormalizeWheel(event);
 
-        if (deltaY >= 0) {
+        if (pixelY >= 0) {
             this.scroll.target += 30;
         } else {
             this.scroll.target -= 30;
         }
-
-        // console.log(this.scroll.current);
-        // console.log(this.scroll.target);
-        // console.log(this.scroll.last);
     }
 
     onResize() {
@@ -96,6 +108,10 @@ export default class Page {
             this.scroll.limit =
                 this.elements.wrapper.clientHeight - window.innerHeight;
         }
+
+        // each(this.animations, animation => {
+        //     animation.onResize && animation.onResize()
+        //   })
     }
 
     update() {
@@ -114,7 +130,6 @@ export default class Page {
             this.scroll.target
         );
 
-        console.log("it's ok");
         this.elements.wrapper.style.transform = `translateY(-${this.scroll.current}px)`;
     }
 

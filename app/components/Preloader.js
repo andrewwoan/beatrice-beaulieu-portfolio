@@ -24,7 +24,7 @@ export default class Preloader extends Component {
     // for each of these images load the image
     createLoader() {
         Object.entries(this.elements.images).forEach((element) => {
-            console.log(element[1]);
+            // console.log(element[1]);
 
             element[1].onload = () => this.onAssetLoaded(element[1]);
             element[1].src = element[1].getAttribute("data-src");
@@ -42,7 +42,6 @@ export default class Preloader extends Component {
         this.elements.progress.innerHTML = progress;
 
         if (progress === 100) {
-            console.log("calling on loaded");
             this.onLoaded();
         }
     }
