@@ -9,7 +9,6 @@ export default class Home extends Page {
                 navigation: document.querySelector(".navigation"),
                 wrapper: ".home__wrapper",
                 gallery: ".home__gallery",
-                gallery: ".home__gallery__wrapper",
             },
         });
     }

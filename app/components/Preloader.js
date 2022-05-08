@@ -24,11 +24,8 @@ export default class Preloader extends Component {
     // for each of these images load the image
     createLoader() {
         Object.entries(this.elements.images).forEach((element) => {
-            // console.log(element[1]);
-
             // element[1].onload = () => this.onAssetLoaded(element[1]);
             // element[1].src = element[1].getAttribute("data-src");
-            console.log(element[1]);
 
             // this.onAssetLoaded();
             element[1].onload = () => this.onAssetLoaded();
@@ -38,7 +35,6 @@ export default class Preloader extends Component {
 
     // when the asset is loaded, add to the progress, when it hit's 100 activated animation onloaded()
     onAssetLoaded() {
-        console.log("onAssetLoaded");
         this.queue += 1;
 
         const progress = Math.round(
@@ -55,8 +51,6 @@ export default class Preloader extends Component {
     onLoaded() {
         return new Promise((resolve) => {
             this.animateOut = new GSAP.timeline();
-
-            console.log(this.element);
 
             this.animateOut.to(this.element, {
                 autoAlpha: 0,

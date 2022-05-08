@@ -80,7 +80,7 @@ class App {
     }
 
     onPopState(event) {
-        this.getNextPage({ url: window.location.pathname, push: true });
+        this.getNextPage({ url: window.location.pathname, push: false });
     }
 
     addEventListeners() {
@@ -116,6 +116,7 @@ class App {
             if (push) {
                 window.history.pushState({}, "", url);
             }
+
             temporaryDiv.innerHTML = entireHTML;
 
             // We only want the content to be selected NOT the html header stuff
@@ -144,11 +145,8 @@ class App {
         if (this.page && this.page.update()) {
             this.page.update();
         }
-        // window.requestAnimationFrame(this.update.bind(this));
         this.frame = window.requestAnimationFrame(this.update.bind(this));
     }
-
-    addLinkListeners() {}
 
     addEventListeners() {
         window.addEventListener("popstate", this.onPopState.bind(this));

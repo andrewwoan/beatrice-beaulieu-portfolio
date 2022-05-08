@@ -2,18 +2,21 @@ require("dotenv").config();
 const contentful = require("contentful");
 const fs = require("fs");
 const path = require("path");
+
 const express = require("express");
 const port = process.env.PORT || 5000;
 const app = express();
 const client = require("./backend/config/config");
 
 // Link Up Express to Use Static Files
+
 app.use(express.static(path.join(__dirname, "dist/assets")));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+app.locals.basedir = app.get("views");
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     // res.render("pages/home");
     client
         .getEntries({ content_type: "work" })
@@ -33,7 +36,7 @@ app.get("/", (req, res) => {
         .catch(console.error);
 });
 
-app.get("/about", (req, res) => {
+app.get("/about", async (req, res) => {
     res.render("pages/about", {
         data: {
             description: "dummy for now",
@@ -41,11 +44,11 @@ app.get("/about", (req, res) => {
     });
 });
 
-app.get("/work", (req, res) => {
+app.get("/work", async (req, res) => {
     res.render("pages/work");
 });
 
-app.get("/work/:uid", (req, res) => {
+app.get("/work/:uid", async (req, res) => {
     client
         .getEntries({
             content_type: "work",

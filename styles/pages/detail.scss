@@ -1,0 +1,16 @@
+.check{
+    height: 200vh;
+    background-color: blue;
+}
+
+.detail__figure {
+    height: 200px;
+    // visibility: hidden;
+    width: 300px;
+}
+
+.detail__image {
+    @extend %cover;
+
+    object-fit: cover;
+}

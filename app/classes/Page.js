@@ -51,7 +51,7 @@ export default class Page {
         });
 
         this.createAnimations();
-        // this.createPreloader();
+        this.createPreloader();
     }
 
     createAnimations() {
@@ -69,10 +69,11 @@ export default class Page {
     }
 
     createPreloader() {
-        // this.preloaders = Object.entries(this.elements.preload).map((entry) => {
-        //     let data = entry[1];
-        //     return new AsyncLoad({ element: data });
-        // });
+        console.log(this.elements.preload[0]);
+        this.preloaders = Object.entries(this.elements.preload).map((entry) => {
+            let data = entry[1];
+            return new AsyncLoad({ element: data });
+        });
     }
 
     // 2. Create Show/Hide
