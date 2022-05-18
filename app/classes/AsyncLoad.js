@@ -10,7 +10,6 @@ export default class AsyncLoad extends Component {
     createObserver() {
         this.observer = new window.IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                console.log(entry);
                 if (entry.isIntersecting) {
                     if (!this.element.src) {
                         this.element.src =

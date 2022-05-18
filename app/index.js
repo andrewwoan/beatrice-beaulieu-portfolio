@@ -77,14 +77,14 @@ class App {
         if (this.page && this.page.onResize) {
             this.page.onResize();
         }
+
+        if (this.experience) {
+            this.experience.onResize();
+        }
     }
 
     onPopState(event) {
         this.getNextPage({ url: window.location.pathname, push: false });
-    }
-
-    addEventListeners() {
-        window.addEventListener("resize", this.onResize.bind(this));
     }
 
     // 4. Manage Link Clicks
@@ -145,10 +145,12 @@ class App {
         if (this.page && this.page.update()) {
             this.page.update();
         }
+        this.experience.update();
         this.frame = window.requestAnimationFrame(this.update.bind(this));
     }
 
     addEventListeners() {
+        window.addEventListener("resize", this.onResize.bind(this));
         window.addEventListener("popstate", this.onPopState.bind(this));
     }
 }

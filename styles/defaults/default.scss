@@ -1,8 +1,8 @@
-// .experience{
-//     position: fixed;
-//     width: 100vw;
-//     height: 100vh;
-// }
+.experience{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
 
 html {
     @extend %cover;
@@ -21,7 +21,6 @@ html {
 
 body{
     @extend %cover;
-  
     position: fixed;
 }
 
