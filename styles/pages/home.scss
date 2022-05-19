@@ -34,17 +34,6 @@
     @extend %left;
 }
 
-// .hero-line-figure{
-//     height: 40px;
-//     width: 60px;
-//     position: relative;
-// }
-
-// .hero-line-image{
-//     @extend %cover;
-//     object-fit: cover;
-// }
-
 .home-media-wrapper{
     @extend %center;
     font-size: 2rem;
@@ -57,12 +46,16 @@
 .home-about{
     @extend %center;
     height: 80vh;
+    position: relative;
+    overflow: visible;
 }
 
 .home-about-wrapper{
     display: flex;
     justify-content: space-between;
     padding: 0rem 3rem;
+    position: relative;
+    overflow: visible;
 }
 
 .home-about-title{
@@ -74,6 +67,20 @@
     font-size: 3rem;
     width: 40%;
 }
+
+.home-profile-figure{
+    height: 80rem;
+    width: 63rem;
+    position: absolute;
+    left: 20%;
+    bottom: -15%;
+}
+
+.home-profile-image{
+    @extend %cover;
+    object-fit: cover;
+}
+
 
 .media-link{
     @extend %media-link;
