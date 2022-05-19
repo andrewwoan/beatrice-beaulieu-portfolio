@@ -1,15 +1,9 @@
-.experience{
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-}
-
 html {
     @extend %cover;
 
-    background: white;
-    color: black;
-    // font-size: calc(100vw / 1920 * 10);
+    background: $color-base-white;
+    color: $color-base-black;
+    font-size: calc(100vw / 1920px * 10px);
     line-height: 1;
     overflow: hidden;
     position: fixed;
@@ -22,11 +16,14 @@ html {
 body{
     @extend %cover;
     position: fixed;
+    font-family: $font-gallery;
+    font-size: 1rem;    
 }
 
-.content{
-    @extend %cover;
-
+.experience{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
 }
 
 .loaded{

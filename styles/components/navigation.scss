@@ -1,9 +1,23 @@
 .navigation{
     z-index: 999999999;
     position: fixed;
-    // display: flex;
-    // width: 100%;
-    // justify-content: flex-end;
-    // align-items: right;
-    
+    font-size: 4rem;
+    width: 100%;
+}
+
+.navigation-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 7rem;
+}
+
+.logo-link{
+    text-decoration: none;
+    color: $color-base-black;
+
+}
+
+.navigation-list-link{
+    text-decoration: none;
+    color: $color-base-black;
 }

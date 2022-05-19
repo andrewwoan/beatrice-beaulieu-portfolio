@@ -5,13 +5,43 @@ block variables
 
 block content
     .home 
-        .home__wrapper 
-            .home__gallery 
-                .home__gallery__wrapper
-                    each work, index in data
-                        figure.home__gallery__figure 
-                            img.home_gallery__image(data-src=work.workImage.fields.file.url)
+        .home-wrapper
+            .hero-wrapper
+                h1.hero-title 
+                    .hero-title-wrapper 
+                        .hero-line Béatrice Beaulieu 
+                        .hero-line.everett-font &#183; Creative Dev 
+                        .hero-line Based in France &#183;
+                .home-media-wrapper
+                        a.media-link(href="/") IN
+                        a.media-link(href="/") TW
+                        a.media-link(href="/") IG
+            .home-about 
+                .home-about-wrapper 
+                    .home-about-title Who am I? 
+                    .home-about-description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            .marquee
+                .marquee-wrapper 
+                    .marquee-content FEATURED WORKS &#183; 
+                    .marquee-content FEATURED WORKS &#183; 
+            .marquee
+                .marquee-wrapper 
+                    .marquee-content CONTACT ME &#47; 
+                    .marquee-content CONTACT ME &#47;
+                
+    //- .home 
+    //-     .home-wrapper
+    //-         h1.hero-title 
+    //-             .hero-title-wrapper 
+    //-                 .hero-line
+    //-                     figure.hero-line-figure
+    //-                         img.hero-line-image(data-src=data[2].workImage.fields.file.url)
+    //-                     .hero-line-title Béatrice Beaulieu
+    //-                 .hero-line.everett-font
+    //-                     .hero-center-title Creative Dev 
+    //-                     figure.hero-line-figure
+    //-                         img.hero-line-image(data-src=data[5].workImage.fields.file.url)
+    //-                 .hero-line Based in France
 
-                        h2.work___title(data-animation="title")=work.workTitle
-                        h2.work___description=work.workDescription        
-                        a.work__link(href=work.url) Test URL
+
+            

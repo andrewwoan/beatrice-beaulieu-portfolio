@@ -36,7 +36,7 @@ class App {
     }
 
     createExperience() {
-        this.experience = new Experience();
+        // this.experience = new Experience();
     }
 
     onPreloaderCompleted() {
@@ -78,9 +78,9 @@ class App {
             this.page.onResize();
         }
 
-        if (this.experience) {
-            this.experience.onResize();
-        }
+        // if (this.experience) {
+        //     this.experience.onResize();
+        // }
     }
 
     onPopState(event) {
@@ -145,7 +145,7 @@ class App {
         if (this.page && this.page.update()) {
             this.page.update();
         }
-        this.experience.update();
+        // this.experience.update();
         this.frame = window.requestAnimationFrame(this.update.bind(this));
     }
 

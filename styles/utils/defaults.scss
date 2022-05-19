@@ -7,9 +7,15 @@
 }
 
 %center {
-    align-items: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+%left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
 }
 
 @mixin ratio ($height, $width) {
@@ -40,4 +46,5 @@
 %page__wrapper {
     color: inherit;
 }
-  
+
+

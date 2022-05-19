@@ -93,6 +93,7 @@ export default class Page {
 
             this.animateIn.call(() => {
                 this.addEventListeners();
+                this.setSmoothScroll();
                 resolve();
             });
         });
@@ -113,9 +114,9 @@ export default class Page {
         const { pixelY } = NormalizeWheel(event);
 
         if (pixelY >= 0) {
-            this.scroll.target += 30;
+            this.scroll.target += 40;
         } else {
-            this.scroll.target -= 30;
+            this.scroll.target -= 40;
         }
     }
 
@@ -128,6 +129,13 @@ export default class Page {
         // each(this.animations, animation => {
         //     animation.onResize && animation.onResize()
         //   })
+    }
+
+    setSmoothScroll() {
+        if (this.elements.wrapper) {
+            this.scroll.limit =
+                this.elements.wrapper.clientHeight - window.innerHeight;
+        }
     }
 
     update() {

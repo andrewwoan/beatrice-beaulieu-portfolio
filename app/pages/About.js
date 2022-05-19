@@ -5,7 +5,7 @@ export default class About extends Page {
         super({
             id: "about",
             element: ".about",
-            elements: { wrapper: ".about__wrapper" },
+            elements: { wrapper: ".about-wrapper" },
         });
     }
 }

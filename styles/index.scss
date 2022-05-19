@@ -1,12 +1,12 @@
 @import './defaults/reset.scss';
+@import './defaults/variables';
 
-@import './utils/variables';
 @import './utils/functions';
-@import './utils/mixins';
+@import './utils/defaults';
 @import './utils/vendors';
+@import './utils/links';
 
 // @import './shared/descriptions';
-// @import './shared/links';
 // @import './shared/pages';
 // @import './shared/titles';
 // @import './shared/vertical-titles';

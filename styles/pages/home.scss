@@ -1,21 +1,102 @@
 .home{
     @extend %page;
-    
     z-index: 9;
-
 }
 
-
-
-.home__gallery__figure {
-    height: 200px;
+.hero-wrapper{
+    height: 100vh;
     position: relative;
-    // visibility: hidden;
-    width: 300px;
 }
 
-.home_gallery__image {
-    @extend %cover;
+.hero-title-wrapper{
+    overflow: hidden;
+}
 
-    object-fit: cover;
+.hero-title{
+    @extend %center;
+    height: 100%;
+}
+
+.hero-title-wrapper{
+    @extend %center;
+    flex-direction: column
+}
+
+.hero-line{
+    @extend %left;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 21.5rem;
+    text-transform: uppercase;
+}
+
+.hero-center-title{
+    @extend %left;
+}
+
+// .hero-line-figure{
+//     height: 40px;
+//     width: 60px;
+//     position: relative;
+// }
+
+// .hero-line-image{
+//     @extend %cover;
+//     object-fit: cover;
+// }
+
+.home-media-wrapper{
+    @extend %center;
+    font-size: 2rem;
+    gap: 2rem;
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+}
+
+.home-about{
+    @extend %center;
+    height: 80vh;
+}
+
+.home-about-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+}
+
+.home-about-title{
+    font-size: 9rem;
+}
+
+.home-about-description{
+    font-family: $font-everett;
+    font-size: 3rem;
+    width: 40%;
+}
+
+.media-link{
+    @extend %media-link;
+}
+
+.marquee{
+    height: 50vh;
+}
+
+.marquee-wrapper{
+    @extend %left;
+    position: relative;
+}
+
+.marquee-content{
+    position: absolute;
+    font-size: 22rem;
+}
+
+
+
+
+// Reuseable
+.everett-font{
+    font-family: $font-everett;
 }

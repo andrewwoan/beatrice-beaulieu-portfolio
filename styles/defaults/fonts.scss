@@ -1,0 +1,64 @@
+@font-face {
+    font-family: $font-gallery;
+    src: url('../public/fonts/gallery.woff') format('woff2'),
+        url('../public/fonts/gallery.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-BoldItalic.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-Light.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-LightItalic.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-Bold.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-RegularItalic.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $font-everett;
+    src: url('../public/fonts/TWKEverett-Regular.woff2') format('woff2'),
+        url('../public/fonts/TWKEverett-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+

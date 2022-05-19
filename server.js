@@ -17,23 +17,23 @@ app.set("view engine", "pug");
 app.locals.basedir = app.get("views");
 
 app.get("/", async (req, res) => {
-    // res.render("pages/home");
-    client
-        .getEntries({ content_type: "work" })
-        .then((response) => {
-            const newData = response.items.map((entry) => {
-                const clone = { ...entry.fields };
-                // clone.workImage = clone.workImage.fields.file.url;
-                // console.log(clone.workImage);
-                return clone;
-            });
-            // console.log(newData);
-            // console.log(newData[0].models[0].fields);
-            res.render("pages/home", {
-                data: newData,
-            });
-        })
-        .catch(console.error);
+    res.render("pages/home");
+    // client
+    //     .getEntries({ content_type: "work" })
+    //     .then((response) => {
+    //         const newData = response.items.map((entry) => {
+    //             const clone = { ...entry.fields };
+    //             // clone.workImage = clone.workImage.fields.file.url;
+    //             // console.log(clone.workImage);
+    //             return clone;
+    //         });
+    //         // console.log(newData);
+    //         // console.log(newData[0].models[0].fields);
+    //         res.render("pages/home", {
+    //             data: newData,
+    //         });
+    //     })
+    //     .catch(console.error);
 });
 
 app.get("/about", async (req, res) => {

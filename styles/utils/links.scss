@@ -1,0 +1,9 @@
+%media-link{
+    @extend center;
+    border: 1px solid $color-base-black;
+    border-radius: 30%;
+    text-transform: uppercase;
+    color: $color-base-black;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+}
