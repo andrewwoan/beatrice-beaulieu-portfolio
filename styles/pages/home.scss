@@ -26,7 +26,7 @@
     @extend %left;
     width: 100%;
     white-space: nowrap;
-    font-size: 21.5rem;
+    font-size: 23rem;
     text-transform: uppercase;
 }
 
@@ -42,6 +42,26 @@
     bottom: 5%;
     left: 2%;
 }
+
+
+.home-cta-wrapper{
+    @extend %center;
+    font-size: 2rem;
+    gap: 2rem;
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+}
+
+.home-scroll-cta{
+    font-size: 4rem;
+}
+
+.home-cta-svg{
+    transform: rotate(90deg);
+}
+
+
 
 .home-about{
     @extend %center;
@@ -81,9 +101,66 @@
     object-fit: cover;
 }
 
-
 .media-link{
     @extend %media-link;
+}
+
+.home-work{
+    @extend center;
+    position: relative;
+    width: 100%;
+    height: 200vh;
+}
+
+.home-work-wrapper{
+    @extend center;
+    width: 100%;
+}
+
+.home-figure-wrapper{
+    @extend center;
+
+}
+
+.home-work-figure{
+    height: 63rem;
+    width: 50rem;
+    position: absolute;
+
+    
+    &:nth-child(1) {
+        left: 20%;
+        bottom: 0%;
+    }
+    &:nth-child(2) {
+        left: 5%;
+        bottom: 20%;
+    }
+    &:nth-child(3) {
+        left: 20%;
+        bottom: -2%;
+    }
+    &:nth-child(4) {
+        right: 20%;
+        bottom: 0%;
+    }
+    &:nth-child(5) {
+        left: 20%;
+        bottom: 40%;
+    }
+}
+
+.home-work-image{
+    @extend %cover;
+    object-fit: cover;
+}
+
+
+.home-work-title{
+    font-size: 24rem;
+    text-transform: uppercase;
+    align-items: center;
+    text-align: center;
 }
 
 .marquee{

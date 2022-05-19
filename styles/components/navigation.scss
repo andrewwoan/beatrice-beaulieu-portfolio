@@ -11,6 +11,12 @@
     padding: 4rem 7rem;
 }
 
+.navigation-list{
+    @extend %center;
+    gap: 3rem;
+    font-size: 3rem;
+}
+
 .logo-link{
     text-decoration: none;
     color: $color-base-black;

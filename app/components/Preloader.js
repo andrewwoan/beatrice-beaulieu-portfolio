@@ -7,8 +7,8 @@ export default class Preloader extends Component {
         super({
             element: ".preloader",
             elements: {
-                text: ".preloader__text",
-                progress: ".preloader__progress",
+                text: ".preloader-text",
+                progress: ".preloader-progress",
                 images: document.querySelectorAll("img"),
             },
         });
