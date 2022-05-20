@@ -7,7 +7,9 @@
 }
 
 .project-link{
-   
+    cursor: pointer;
+   text-decoration: none;
+   color: $color-font-black;
 }
 
 .home-work-wrapper{
@@ -21,7 +23,7 @@
     border-top: 1px solid rgb(199, 199, 199);
     margin: 0rem 6rem;
     padding: 0rem 6rem;
-    cursor: pointer;
+    position: relative;
     
     &:last-child {
         // border-bottom: 1px solid rgb(199, 199, 199);
@@ -44,3 +46,26 @@
     align-items: left;
     text-align: left;
 }
+
+
+.home-work-figure{
+    height: 45rem;
+    width: 65rem;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    opacity: 0;
+}
+
+.home-work-image-wrapper{
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+}
+
+.home-work-image{
+    @extend %cover;
+    object-fit: cover;
+}
+
+

@@ -1,6 +1,7 @@
 
 .home-about{
     @extend %center;
+    padding-top: 20rem;
     height: 90rem;
     position: relative;
     overflow: visible;
@@ -63,7 +64,7 @@
     width: 40rem;
     position: absolute;
     left: 20%;
-    bottom: -50%;
+    bottom: -40%;
 }
 
 .home-profile-image{

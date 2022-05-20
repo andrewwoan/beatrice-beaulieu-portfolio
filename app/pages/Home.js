@@ -8,6 +8,9 @@ export default class Home extends Page {
             elements: {
                 navigation: document.querySelector(".navigation"),
                 wrapper: ".home-wrapper",
+                links: ".project-link",
+                images: ".home-work-image",
+                work: ".work-list-wrapper",
             },
         });
     }

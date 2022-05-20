@@ -173,8 +173,89 @@ export default class Page {
         }
     }
 
+    workMove(event) {
+        console.log(this.moving.movingImage.src);
+    }
+
+    workEnter(event) {
+        this.elements.work.addEventListener(
+            "mousemove",
+            this.workMove.bind(this)
+        );
+
+        this.moving = { element: this.elements.work };
+
+        this.moving.movingWrapper = document.createElement("div");
+        this.moving.movingWrapper.className += ".home-work-image-wrapper";
+
+        this.moving.movingImage = document.createElement("img");
+        this.moving.movingImage.className += ".home-work-image";
+
+        this.moving.movingWrapper.appendChild(this.moving.movingImage);
+        this.moving.element.appendChild(this.moving.movingWrapper);
+    }
+
+    workLeave(event) {
+        console.log(event);
+
+        this.moving.element.removeChild(this.moving.movingWrapper);
+
+        this.elements.work.removeEventListener(
+            "mousemove",
+            this.workMove.bind(this)
+        );
+    }
+
+    hoverImage(event) {
+        // console.log(event);
+        // console.log(
+        //     event.srcElement.children[0].children[1].children[0].currentSrc
+        // );
+        // this.moving.movingImage.src =
+        //     event.srcElement.children[0].children[1].children[0].currentSrc;
+
+        GSAP.fromTo(
+            this.moving.movingImage,
+            {
+                opacity: 0,
+                attr: {
+                    src: this.moving.movingImage.src,
+                },
+            },
+            {
+                opacity: 1,
+                duration: 1,
+                attr: {
+                    src: event.srcElement.children[0].children[1].children[0]
+                        .currentSrc,
+                },
+            }
+        );
+    }
+
     addEventListeners() {
         window.addEventListener("wheel", this.onMouseWheel.bind(this));
+
+        if (this.elements.work) {
+            console.log(this.elements.work);
+            this.elements.work.addEventListener(
+                "mouseenter",
+                this.workEnter.bind(this)
+            );
+            this.elements.work.addEventListener(
+                "mouseleave",
+                this.workLeave.bind(this)
+            );
+        }
+
+        if (this.elements.links) {
+            this.elements.links.forEach((element) => {
+                element.addEventListener(
+                    "mouseenter",
+                    this.hoverImage.bind(this)
+                );
+            });
+        }
     }
 
     removeEventListeners() {

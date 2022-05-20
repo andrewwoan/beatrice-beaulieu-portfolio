@@ -14,7 +14,12 @@
 .navigation-list{
     @extend %center;
     gap: 3rem;
-    font-size: 3rem;
+}
+
+.navigation-list-link{
+    @extend %center;
+    gap: 3rem;
+    font-size: 3.2rem;
 }
 
 .logo-link{

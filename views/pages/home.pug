@@ -72,9 +72,12 @@ block content
 
                     .work-list-wrapper
                         each work in data.work
-                            a.project-link
+                            a.project-link(data-animation="hoverimage" href="/")
                                 .home-work-inner-wrapper
-                                    .home-work-small-title Rendo
+                                    h2.home-work-small-title Rendo
+                                    figure.home-work-figure
+                                        img.home-work-image(data-src=work)
+
                             
                                 
 
