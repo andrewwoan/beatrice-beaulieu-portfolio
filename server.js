@@ -41,7 +41,7 @@ app.get("/", async (req, res) => {
     // res.render("pages/home");
     const data = await getAllData();
 
-    console.log(data);
+    // console.log(data);
 
     res.render("pages/home", {
         data,

@@ -1,0 +1,72 @@
+
+.home-about{
+    @extend %center;
+    height: 90rem;
+    position: relative;
+    overflow: visible;
+}
+
+.home-about-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+    position: relative;
+    overflow: visible;
+}
+
+.home-svg-container{
+    height: 170rem;
+    width: 120rem;
+    position: absolute;
+
+    &:nth-child(1){
+        left: -15%;
+        
+    }
+    &:nth-child(2){
+        right: -15%;
+        top: -30%;
+        width: 120rem;
+    }
+}
+
+.branch-left{
+    @extend %cover;
+    // position: absolute;
+    // left: -15%;
+    // bottom: -30%;
+}
+
+.branch-right{
+    @extend %cover;
+    padding-top: 100rem;
+    // position: absolute;
+    // right: -15%;
+    // bottom: -78%;
+}
+
+
+.home-about-title{
+    font-size: 9rem;
+}
+
+.home-about-description{
+    font-family: $font-everett;
+    line-height: 1.5;
+    font-size: 3rem;
+    width: 40%;
+    padding-top: 30rem;
+}
+
+.home-profile-figure{
+    height: 60rem;
+    width: 40rem;
+    position: absolute;
+    left: 20%;
+    bottom: -50%;
+}
+
+.home-profile-image{
+    @extend %cover;
+    object-fit: cover;
+}

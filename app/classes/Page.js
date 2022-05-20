@@ -10,6 +10,8 @@ export default class Page {
         this.selectorChildren = {
             ...elements,
             animationTitles: '[data-animation="title"]',
+            moveup: '[data-animation="moveup"]',
+            draw: '[data-animation="draw"]',
             preload: "[data-src]",
         };
         this.id = id;
@@ -61,7 +63,6 @@ export default class Page {
                 this.elements.animationTitles
             ).map((entry) => {
                 let data = entry[1];
-
                 return new Title({ element: data });
             });
             this.animation.push(...this.animationTitles);
@@ -114,9 +115,9 @@ export default class Page {
         const { pixelY } = NormalizeWheel(event);
 
         if (pixelY >= 0) {
-            this.scroll.target += 40;
+            this.scroll.target += 45;
         } else {
-            this.scroll.target -= 40;
+            this.scroll.target -= 45;
         }
     }
 
@@ -155,6 +156,15 @@ export default class Page {
         );
 
         this.elements.wrapper.style.transform = `translateY(-${this.scroll.current}px)`;
+
+        // Move Animations
+        if (this.elements.moveup) {
+            this.elements.moveup.forEach((element, index) => {
+                element.style.transform = `translateY(-${
+                    this.scroll.current * 0.2 * (index % 3)
+                }px)`;
+            });
+        }
     }
 
     addEventListeners() {
