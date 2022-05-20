@@ -115,9 +115,9 @@ export default class Page {
         const { pixelY } = NormalizeWheel(event);
 
         if (pixelY >= 0) {
-            this.scroll.target += 45;
+            this.scroll.target += 80;
         } else {
-            this.scroll.target -= 45;
+            this.scroll.target -= 80;
         }
     }
 
@@ -160,8 +160,14 @@ export default class Page {
         // Move Animations
         if (this.elements.moveup) {
             this.elements.moveup.forEach((element, index) => {
+                let speed = 0;
+                if (index === 0) {
+                    speed = 0.1;
+                } else {
+                    speed = 0.2 * (index % 3);
+                }
                 element.style.transform = `translateY(-${
-                    this.scroll.current * 0.2 * (index % 3)
+                    this.scroll.current * speed
                 }px)`;
             });
         }
