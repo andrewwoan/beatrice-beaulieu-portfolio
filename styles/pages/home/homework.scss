@@ -18,6 +18,11 @@
     overflow: visible;
 }
 
+.work-list-wrapper{
+    @extend center;
+}
+
+
 
 .home-work-inner-wrapper{
     border-top: 1px solid rgb(199, 199, 199);
@@ -46,7 +51,6 @@
     align-items: left;
     text-align: left;
 }
-
 
 .home-work-figure{
     height: 45rem;
